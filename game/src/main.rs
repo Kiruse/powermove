@@ -1,8 +1,10 @@
 use bevy::{log::LogPlugin, prelude::*};
 
 pub mod mainmenu;
-pub mod loading;
 pub mod ingame;
+pub mod loading;
+pub mod procedural;
+pub mod world;
 
 #[derive(Debug, Clone, Copy, Default, Eq, PartialEq, Hash, States)]
 pub enum GameState {

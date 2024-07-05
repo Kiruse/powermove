@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "game"
+		},
+		{
+			"path": "lib"
+		},
+		{
+			"path": "terrain-gen"
+		}
+	],
+	"settings": {}
+}
