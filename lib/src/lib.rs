@@ -1,14 +1,9 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+use glam::Vec3;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod geometry;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
+
+pub fn generate_terrain(verts: &Vec3) -> Result<crate::geometry::Mesh> {
+  todo!("Implement terrain generation")
 }
