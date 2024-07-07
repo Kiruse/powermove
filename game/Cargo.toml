@@ -9,6 +9,7 @@ bevy = { version = "0.13.2", features = ["dynamic_linking"] }
 serde = "1.0.203"
 serde_yml = "0.0.10"
 powermove-lib = { path = "../lib" }
+bevy_obj = "0.13.0"
 
 [profile.dev]
 opt-level = 1

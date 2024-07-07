@@ -1,10 +1,11 @@
 use bevy::prelude::*;
-use serde::{Deserialize, Serialize};
 
-use crate::procedural::Vertex;
+#[derive(Resource, Default, Debug)]
+pub struct World {
+  pub islands: Vec<Island>,
+}
 
-#[derive(Component, Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Default, Debug)]
 pub struct Island {
-  pub name: String,
-  pub tiles: SparseCubeMap,
+  pub mesh: Handle<Mesh>,
 }
