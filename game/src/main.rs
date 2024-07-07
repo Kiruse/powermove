@@ -37,6 +37,7 @@ fn main() {
       crate::ingame::InGamePlugin,
     ))
     .add_systems(Startup, setup)
+    .init_resource::<LaunchData>()
     .run();
 }
 
@@ -46,7 +47,7 @@ fn setup(
   mut next_state: ResMut<NextState<GameState>>,
 ) {
   launchres.world.islands.push(world::Island {
-    mesh: assets.load("models/island.obj"),
+    mesh: assets.load("models/test-island.obj"),
   });
   debug!("Setup complete");
   next_state.set(GameState::InGame);

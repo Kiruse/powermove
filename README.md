@@ -13,4 +13,4 @@ Note that `game/assets` are not stored in this repository as these are mostly bi
 # Development Setup
 
 1. Clone this repo.
-2. Acquire `game/assets`. Still working out where they will be stored. For the time being, contact me directly.
+2. As a temporary solution, [download the game assets](https://mega.nz/folder/k5Zn2YbI#gXyaq-i9EM8cIXjHNEzNHQ) and store them in a `game/assets` folder.
