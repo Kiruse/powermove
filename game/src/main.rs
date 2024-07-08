@@ -48,6 +48,10 @@ fn setup(
 ) {
   launchres.world.islands.push(world::Island {
     mesh: assets.load("models/test-island.obj"),
+    mat: assets.add(StandardMaterial {
+      base_color: Color::rgb(0.8, 0.7, 0.6),
+      ..Default::default()
+    }),
   });
   debug!("Setup complete");
   next_state.set(GameState::InGame);

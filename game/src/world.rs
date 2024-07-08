@@ -8,4 +8,5 @@ pub struct World {
 #[derive(Default, Debug)]
 pub struct Island {
   pub mesh: Handle<Mesh>,
+  pub mat: Handle<StandardMaterial>,
 }
