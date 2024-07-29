@@ -1,10 +1,13 @@
 use bevy::{log::LogPlugin, prelude::*};
 use bevy_obj::ObjPlugin;
+use bevy_sprite3d::Sprite3dPlugin;
 
-pub mod mainmenu;
-pub mod ingame;
-pub mod loading;
-pub mod world;
+mod mainmenu;
+mod ingame;
+mod loaders;
+mod loading;
+mod character;
+mod world;
 
 #[derive(Debug, Clone, Copy, Default, Eq, PartialEq, Hash, States)]
 pub enum GameState {
@@ -22,22 +25,31 @@ pub struct LaunchData {
 
 fn main() {
   App::new()
-    .init_state::<GameState>()
+    // default plugins
     .add_plugins((
-      DefaultPlugins.set(LogPlugin {
+      DefaultPlugins
+      .set(LogPlugin {
         filter: "info,abysine=debug".into(),
         level: bevy::log::Level::DEBUG,
         ..default()
-      }),
-      ObjPlugin,
+      })
+      .set(ImagePlugin::default_nearest()),
     ))
+    // 3rd party plugins
+    .add_plugins((
+      ObjPlugin,
+      Sprite3dPlugin,
+    ))
+    // project plugins
     .add_plugins((
       crate::mainmenu::MainMenuPlugin,
       crate::loading::LoadingPlugin,
       crate::ingame::InGamePlugin,
+      crate::character::CharacterPlugin,
     ))
-    .add_systems(Startup, setup)
+    .init_state::<GameState>()
     .init_resource::<LaunchData>()
+    .add_systems(Startup, setup)
     .run();
 }
 
@@ -49,7 +61,7 @@ fn setup(
   launchres.world.islands.push(world::Island {
     mesh: assets.load("models/test-island.obj"),
     mat: assets.add(StandardMaterial {
-      base_color: Color::rgb(0.8, 0.7, 0.6),
+      base_color: Color::srgb(0.8, 0.7, 0.6),
       ..Default::default()
     }),
   });

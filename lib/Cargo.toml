@@ -8,4 +8,5 @@ edition = "2021"
 [dependencies]
 glam = { version = "0.28.0", features = ["serde"] }
 serde = "1.0.203"
-serde_yml = "0.0.10"
+serde_yml = "0.0.11"
+thiserror = "1.0.63"

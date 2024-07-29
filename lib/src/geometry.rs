@@ -1,7 +1,7 @@
 use glam::{Vec2, Vec3};
 use serde::{Deserialize, Serialize};
 
-use crate::Result;
+use crate::{PowermoveLibError, Result};
 
 /** A Geometry is an entity that contains vertices. Every set of 3 vertices forms a face. */
 pub trait Geometry {
@@ -16,7 +16,7 @@ impl<T: Geometry> GeometryMethods for T {
   fn build(&self) -> Result<GeometryCache> {
     let verts = self.vertices();
     if verts.len() % 3 != 0 {
-      return Err("Invalid number of vertices".into());
+      return Err(PowermoveLibError::generic("Invalid number of vertices"));
     }
 
     let mut pos: Vec<Vec3> = vec![];
